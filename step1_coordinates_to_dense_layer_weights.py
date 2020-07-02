@@ -25,7 +25,7 @@ def generate_and_save_dense_layer_weights():
 
 	brief_version = 64  # either 16, 32, or 64
 
-    # properties of the fully-connected layer
+	# properties of the fully-connected layer
 	input_dimension = brief_patch_size * brief_patch_size
 	output_dimension = brief_version * 8
 
@@ -42,23 +42,23 @@ def generate_and_save_dense_layer_weights():
 	while True:
 		line = file.readline()
 		if not line: 
-		    break
+			break
 		
 		x_coord_prev = x_coord
 		y_coord_prev = y_coord
 		
 		x_coord = int(line[1: line.find(",")])
 		y_coord = int(line[line.find(",") + 1: -2])
-	  
-		if total_count % 2 == 1:
-		    
-		    index1 = np.ravel_multi_index((x_coord_prev + centre_coord_offset, y_coord_prev + centre_coord_offset), (brief_patch_size, brief_patch_size))
-		    index2 = np.ravel_multi_index((x_coord + centre_coord_offset, y_coord + centre_coord_offset), (brief_patch_size, brief_patch_size))
-		    
-		    weights[index1, output_count] = -1
-		    weights[index2, output_count] = 1
 
-		    output_count += 1
+		if total_count % 2 == 1:
+
+			index1 = np.ravel_multi_index((x_coord_prev + centre_coord_offset, y_coord_prev + centre_coord_offset), (brief_patch_size, brief_patch_size))
+			index2 = np.ravel_multi_index((x_coord + centre_coord_offset, y_coord + centre_coord_offset), (brief_patch_size, brief_patch_size))
+
+			weights[index1, output_count] = -1
+			weights[index2, output_count] = 1
+
+			output_count += 1
 
 		total_count += 1
 		
