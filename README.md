@@ -7,3 +7,8 @@ Trained models can be found are under [weights_pub/](https://github.com/nimpy/le
 For more details, refer to [the paper](https://ieeexplore.ieee.org/document/9287159) or [the YouTube video](https://youtu.be/xPaRN4L9eT0).
 
 ![Steps 1-3](/figures/learned_brief_steps_1-3.png)
+
+
+### Additional experiments
+
+We also provide [a notebook](https://github.com/nimpy/learned-brief/blob/master/steps_alternative__train_whole_AE_from_scratch.ipynb) for training a descriptor with the same autoencoder architecture from scratch (without the initialisation of weights to mimic BRIEF), and [the model trained using this setup](https://github.com/nimpy/learned-brief/blob/master/weights_pub/alt_learned_brief_ae.h5).
